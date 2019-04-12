@@ -40,9 +40,9 @@ class Database{
     }
 
     public function updateAccoundData($id,$follower,$following){
-        $sql = "UPDATE accound_data SET accound_follower=?, accound_following WHERE id=?";
+        $sql = "UPDATE accound_data SET accound_follower=?, accound_following=? WHERE id=?";
         $result = self::$con->prepare($sql);
-        $result->execute([$id,$follower,$following]);
+        $result->execute([$follower,$following,$id]);
     }
     public function getAccounds(){
         $sql ="SELECT * FROM accounds";

@@ -6,7 +6,11 @@ class UserHelper{
             array_push($users,$array['users'][$i]['pk']);
         }
         return $users;
+       //print_r($users);
     }
+
+
+    
 }
 
 ?>

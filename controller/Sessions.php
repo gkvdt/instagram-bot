@@ -1,5 +1,8 @@
 <?php
 include_once '../modal/database/Database.php';
+include_once 'AccoundHandler.php';
+
+
 
 $database = new Database();
 function sessionStart(){
@@ -19,7 +22,8 @@ if(@$_GET){
         $_SESSION['password']=$user[1];
         $_SESSION['followers']=$user[2];
         $_SESSION['following']=$user[3];
-        print_r($user);
+        updateAccoundDb();
+        //print_r($user);
     }
     if(@$_GET['typ'] == 'logout'){
         resetSession();
