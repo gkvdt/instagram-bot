@@ -27,24 +27,31 @@
                                                     Takipçi Sayısı
                                                 </td>
                                             </tr>
-                                            <tr class="unread">
+<?php 
+include_once 'modal/database/Database.php';
+$database = new Database();
+
+$users = $database->getAccounds();
+foreach($users as $user){
+?>
+<tr class="unread" onclick="location.href='controller/Sessions.php?typ=login&id=<?php echo $user[0]; ?>'" >
                                              
                                               
                                                 <td class="cell-icon align-center">
-                                                    asdqwzxcdevrew
+                                                    <?php echo $user[1]; ?>
                                                 </td>
                                                 <td class="cell-icon  align-center">
-                                                    123456
+                                                    <?php echo $user[2]; ?>
                                                 </td>
                                                 <td class="cell-icon  align-center">
-                                                    23  
+                                                    <?php echo $user[3]; ?>
                                                 </td>
                                                 <td class="cell-icon  align-center">
-                                                    5465
+                                                    <?php echo $user[4]; ?>
                                                 </td>
                                             </tr>
                                         
-   
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

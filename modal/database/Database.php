@@ -44,6 +44,30 @@ class Database{
         $result = self::$con->prepare($sql);
         $result->execute([$id,$follower,$following]);
     }
+    public function getAccounds(){
+        $sql ="SELECT * FROM accounds";
+        $users = array();
+        foreach(self::$con->query($sql) as $user){
+            $accound_data = self::$con->prepare('SELECT * FROM accound_data WHERE id=?');
+            $accound_data->execute([$user['id']]);
+            $x = $accound_data->fetch();
+            array_push($users,array($user['id'],$user['username'],$user['password'],$x['accound_follower'],$x['accound_following']));
+        }
+        return $users;
+    }
+     public function getAccound($id){
+        $sql ="SELECT * FROM accounds WHERE id=?";
+        $userf = self::$con->prepare($sql);
+        $userf->execute([$id]);
+        $user = $userf->fetch();
+        $accound_data = self::$con->prepare('SELECT * FROM accound_data WHERE id=?');
+        $accound_data->execute([$id]);
+        $x = $accound_data->fetch();
+        $accound =  array($user['username'],$user['password'],$x['accound_follower'],$x['accound_following']);
+       
+        return $accound;
+    }
+   
 }
 
 ?>

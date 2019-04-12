@@ -1,18 +1,30 @@
 <?php 
 
-require_once 'modal/autoload.php';
-
-
 require_once 'modal/components/header.php';?>
 <?php //require_once 'components/footer.php';?>
 
 <div class="content">
                             <div class="btn-controls">
                                 <div class="btn-box-row row-fluid">
-                                    <a href="#" class="btn-box big span4"><i class=" icon-group"></i><b>1234</b>
+                                <a href="#" class="btn-box big span4"><i class=" icon-group"></i><b><?php 
+
+if(!isset($_SESSION['followers'])){
+    echo '-';
+}else{
+    echo $_SESSION['followers'];
+}
+?></b>
                                         <p class="text-muted">
                                             Takipçi Sayısı</p>
-                                    </a><a href="#" class="btn-box big span4"><i class="icon-user"></i><b>15</b>
+                                            </a><a href="#" class="btn-box big span4"><i class="icon-user"></i><b><?php
+
+if(!isset($_SESSION['following'])){
+    echo '-';
+}else{
+    echo $_SESSION['following'];
+}
+
+?></b>
                                         <p class="text-muted">
                                             Takip</p>
                                     </a><a href="#" class="btn-box big span4"><i class="icon-random"></i><b>Takipçi Kas</b>
