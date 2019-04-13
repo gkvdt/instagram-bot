@@ -7,6 +7,16 @@
             <!--/.container-->
         </div>
         <!--/.wrapper-->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">İşlem Gerçekleştiriliyor</h3>
+    </div>
+    <div class="modal-body">
+        <p>İşlem biraz uzun sürebilir. Lütfen pencereyi kapatmayın. İşlem bitince kendiliğinden kapanacaktır.</p>
+    </div>
+
+    </div>
         <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2019 İnstagram Botu - gkvdt </b>

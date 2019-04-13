@@ -16,7 +16,7 @@ if(!isset($_SESSION['followers'])){
 ?></b>
                                         <p class="text-muted">
                                             Takipçi Sayısı</p>
-                                            </a><a href="#" class="btn-box big span4"><i class="icon-user"></i><b><?php
+                                            </a><a href="#" id="followers" class="btn-box big span4"><i class="icon-user"></i><b><?php
 
 if(!isset($_SESSION['following'])){
     echo '-';
@@ -27,7 +27,7 @@ if(!isset($_SESSION['following'])){
 ?></b>
                                         <p class="text-muted">
                                             Takip</p>
-                                    </a><a href="#" class="btn-box big span4"><i class="icon-random"></i><b>Takipçi Kas</b>
+                                    </a><a href="#" id="followpending" class="btn-box big span4"><i class="icon-random"></i><b>Takipçi Kas</b>
                                         <p class="text-muted">
                                         &nbsp</p>
                                     </a>

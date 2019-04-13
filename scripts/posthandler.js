@@ -1,5 +1,43 @@
 var cUsername = true;
 var cPassword = true;
+$('#followpending').click(function(){
+    startLoading();
+    $.ajax({
+        url:'controller/Actions.php',
+        type:'get',
+        data:{
+            typ:'followpending'
+        },
+        success:function(res){
+            if(res == 'ok'){
+                stopLoading();
+            }
+        }
+    });
+});
+$('#followers').click(function(){
+    startLoading();
+    $.ajax({
+        url:'controller/Actions.php',
+        type:'get',
+        data:{
+            typ:'unfollow'
+        },
+        success:function(res){
+            if(res == 'ok'){
+                stopLoading();
+            }
+        }
+    });
+});
+
+
+function startLoading(){
+    $('#myModal').modal('show')
+}
+function stopLoading() {
+    $('#myModal').modal('hide')
+}
 $('#add-accound').submit(function(){
     var username = $('#username').val();
     var password = $('#password').val();

@@ -43,9 +43,9 @@ function getSelfFollowing(){
     try{
         $rankToken = \InstagramAPI\Signatures::generateUUID();
         $data= $instagram->people->getSelfFollowing($rankToken);
-        $userData = json_decode($data,true);
+        $userData = json_decode(json_encode($data),true);
         //print_r($userData);   
-        return $userData;
+        return $userData['users'];
     }catch(\Exception $e){
         echo $e->getMessage();
         return null;
@@ -72,6 +72,31 @@ function updateAccoundDb(){
     $database->updateAccoundData($_SESSION['id'],$followersCount,$followingCount);
     $_SESSION['followers']=$followersCount;
     $_SESSION['following']=$followingCount;
+}
+function getPendingFriendship(){
+    global $instagram;
+    loginAccound();
+
+    $pendingfriend = $instagram->people->getPendingFriendships();
+    $jsonn = json_decode(json_encode($pendingfriend),true);
+    return $jsonn['suggested_users']['suggestions'];
+}   
+function sendFollow($id){
+    global $instagram;
+    try {
+        
+        $instagram->people->follow($id);
+    }catch(\Exception $e){
+        echo $e->getMessage();
+    }
+    
+}
+function unfAll(){
+    global $instagram;
+    $following_users = getSelfFollowing();
+    foreach($following_users as $user){
+        $instagram->people->unfollow($user['pk']);  
+    }
 }
 
 ?>

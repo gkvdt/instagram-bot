@@ -20,8 +20,6 @@ if(@$_GET){
         $_SESSION['id']=$_GET['id'];
         $_SESSION['username']=$user[0];
         $_SESSION['password']=$user[1];
-        $_SESSION['followers']=$user[2];
-        $_SESSION['following']=$user[3];
         updateAccoundDb();
         //print_r($user);
     }
